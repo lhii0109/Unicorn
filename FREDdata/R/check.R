@@ -4,9 +4,10 @@
 #' @export
 #' @return Return the FRED data with the date that is closest to the initial date \code{x}.
 #' @examples
-#' closest_date("1988-09-23")
-#' The closest 
-#' 
+#' The date that is closest from 1988-09-23 in the FRED data set is  1988-10-01 in row 502 with CPIAUCSL 119.9
+#' > closest_date("1988-09-23")
+#'           DATE CPIAUCSL
+#' 502 1988-10-01    119.9
 
 closest_date=function(x){
   y=ymd(FRED$DATE)
@@ -22,7 +23,8 @@ closest_date=function(x){
 #' @export
 #' @return Return the inflation incorporated price of the initial price \code{y}, given the initial date \code{x} and target date \code{z}.
 #' @examples
-#' convert_values("2017-03-30", 100, "1988-09-23")
+#' > convert_values("2017-03-30", 100, "1988-09-23")
+#' [1] 49.04768
 
 
 # convert_values=function(initial_day, initial_value, target_day){
