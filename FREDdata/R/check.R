@@ -5,12 +5,13 @@
 #' @return Return the FRED data with the date that is closest to the initial date \code{x}.
 #' @examples
 #' closest_date("1988-09-23")
+#' The closest 
+#' 
 
 closest_date=function(x){
   y=ymd(FRED$DATE)
   FRED[which(abs(y-ymd(x))==min(abs(y-ymd(x)))),] %>% 
     return()
-  
 }
 
 #' Convert values 
@@ -39,7 +40,7 @@ convert_values=function(x, y, z){
   return(target_value)
 }
 
-pkg=c("lubridate", "tidyverse")
-sapply(pkg, require, character=T)
-FRED=read.csv("../Data/CPIAUCSL.csv", stringsAsFactors = F)
-convert_values("2017-03-30", 100, "1988-09-23")
+# pkg=c("lubridate", "tidyverse")
+# sapply(pkg, require, character=T)
+# FRED=read.csv("../Data/CPIAUCSL.csv", stringsAsFactors = F)
+# convert_values("2017-03-30", 100, "1988-09-23")

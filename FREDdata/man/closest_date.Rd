@@ -17,4 +17,6 @@ Obtain the closest date entry in the FRED data set
 }
 \examples{
 closest_date("1988-09-23")
+The closest 
+
 }
