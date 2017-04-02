@@ -7,7 +7,7 @@
 closest_date(x)
 }
 \arguments{
-\item{x}{Initial date that one wishes to match with the closest date on FRED data set.}
+\item{x}{Initial date that one wishes to match with the closest date on FRED data set. \code{x} must be in ymd format, e.g., "1988-09-23".}
 }
 \value{
 Return the FRED data with the date that is closest to the initial date \code{x}.

@@ -1,6 +1,8 @@
+FRED.CPI <- read.csv("Data/CPIAUCSL.csv", stringsAsFactors = F)
+
 #' Obtain the closest date entry in the FRED data set
 #'
-#' @param x Initial date that one wishes to match with the closest date on FRED data set.
+#' @param x Initial date that one wishes to match with the closest date on FRED data set. \code{x} must be in ymd format, e.g., "1988-09-23".
 #' @export
 #' @return Return the FRED data with the date that is closest to the initial date \code{x}.
 #' @examples
@@ -10,8 +12,8 @@
 #' 502 1988-10-01    119.9
 
 closest_date=function(x){
-  y=ymd(FRED$DATE)
-  FRED[which(abs(y-ymd(x))==min(abs(y-ymd(x)))),] %>%
+  y=ymd(FRED.CPI$DATE)
+  FRED.CPI[which(abs(y-ymd(x))==min(abs(y-ymd(x)))),] %>%
     return()
 }
 
@@ -42,14 +44,6 @@ convert_values=function(x, y, z){
   return(target_value)
 }
 
-# pkg=c("lubridate", "tidyverse")
-# sapply(pkg, require, character=T)
-# FRED=read.csv("../Data/CPIAUCSL.csv", stringsAsFactors = F)
-# convert_values("2017-03-30", 100, "1988-09-23")
-
-
-
-
 #'Plot Consumer Price Index Through Time
 #'
 #'@param x Date for the initial entry
@@ -60,13 +54,8 @@ convert_values=function(x, y, z){
 #' > inflation.through.time("1975-01-01","1985-01-01")
 
 inflation.through.time <- function(x,y){
-  FRED=read.csv("./Data/CPIAUCSL.csv", stringsAsFactors = F)
-  FRED$DATE <- ymd(FRED$DATE)
- bottom.cut <- FRED %>% filter(DATE >paste(x))
- final.cut <- bottom.cut %>% filter(DATE < paste(y))
-ggplot(final.cut, aes(DATE, CPIAUCSL)) + geom_line()
+  FRED.CPI$DATE <- ymd(FRED.CPI$DATE)
+  bottom.cut <- FRED.CPI %>% filter(DATE >paste(x))
+  final.cut <- bottom.cut %>% filter(DATE < paste(y))
+  ggplot(final.cut, aes(DATE, CPIAUCSL)) + geom_line()
 }
-
-# pkg=c("lubridate", "tidyverse")
-# sapply(pkg, require, character=T)
-# FRED=read.csv("../Data/CPIAUCSL.csv", stringsAsFactors = F)
