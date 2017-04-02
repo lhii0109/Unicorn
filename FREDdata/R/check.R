@@ -47,7 +47,7 @@ convert_values=function(x, y, z){
 #'Plot Consumer Price Index Through Time
 #'
 #'@param x Date for the initial entry
-#'@param y Value for the initial entry
+#'@param y Date for the final entry
 #'@export
 #' @return Plot the calculated CPI for All Urban Consumers \code{x} until \code{y}.
 #' @examples
