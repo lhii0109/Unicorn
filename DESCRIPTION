@@ -1,0 +1,12 @@
+Package: FREDdata
+Type: Package
+Title: Inflation Corrector and Visualizer 
+Version: 0.1.0
+Author: Lawrence Hii, Taikgun Song, Vinny Paris
+Maintainer: Lawrence Hii  <lhii@iastate.edu>
+Description: There are three main functions that this package will do. The first is to show the growth of the consumer price index for all urban consumers where one can identify the dates one is interested in. The second is a price convertor where if given a date and price, it will convert the price to another given day's value.  
+License: GPL-2
+Depends: tidyverse, lubridate, ggplot2
+Encoding: UTF-8
+LazyData: true
+RoxygenNote: 6.0.1
